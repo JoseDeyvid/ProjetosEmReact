@@ -13,4 +13,37 @@
 }
 
 .content {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-result {
+  padding: .5rem;
+  text-align: end;
+  margin: .5rem 0;
+  background-color: #fff;
+  border: 1px solid #000;
+}
+
+.input-equation {
+  height: 70px;
+  display: flex;
+  align-items: start;
+  margin-top: .5rem;
+  border: 1px solid #000;
+}
+
+.input-equation input {
+  width: 100%;
+  text-align: end;
+  border: none;
+  background: #fff;
+  padding: .2rem;
+}
+
+.calc-keyboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .5rem;
+  padding-top: 1rem;
 }
