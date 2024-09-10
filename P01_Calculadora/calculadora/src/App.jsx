@@ -16,6 +16,16 @@ function App() {
 
   const [shouldUpdateEquation, setShouldUpdateEquation] = useState(false);
 
+  useEffect(() => {
+    setFirstNumber(String(result));
+  }, [result])
+
+  useEffect(() => {
+    if (firstNumber !== '') {
+      setEquation((prevState) => prevState + ' = ' + result);
+    }
+  }, [shouldUpdateEquation])
+
   const insertNumberOnEquation = (n) => {
     if (equation === '0') {
       setFirstNumber(n);
@@ -30,18 +40,8 @@ function App() {
 
   }
 
-  useEffect(() => {
-    setFirstNumber(String(result));
-  }, [result])
-
-  useEffect(() => {
-    if (result !== 0) {
-      setEquation((prevState) => prevState + ' = ' + result);
-    }
-  }, [shouldUpdateEquation])
-
   const insertOperationOnEquation = (op) => {
-    if (firstNumber === '' || firstNumber === '0') {
+    if (firstNumber === '') {
       return;
     }
 
@@ -86,9 +86,16 @@ function App() {
   }
 
   const handleClickEqualsSign = () => {
+    if (equation.includes('=')) {
+      return;
+    }
     calcResult(operation, firstNumber, secondNumber);
     setSecondNumber('');
+    // if (result === 0) {
+    //   setEquation((prevState) => prevState + ' = ' + 0);
+    // } else {
     setShouldUpdateEquation((prevState) => !prevState);
+    // }
     setOperation('');
   }
 
