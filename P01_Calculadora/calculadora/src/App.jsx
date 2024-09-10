@@ -91,17 +91,12 @@ function App() {
     }
     calcResult(operation, firstNumber, secondNumber);
     setSecondNumber('');
-    // if (result === 0) {
-    //   setEquation((prevState) => prevState + ' = ' + 0);
-    // } else {
     setShouldUpdateEquation((prevState) => !prevState);
-    // }
     setOperation('');
   }
 
   const clearEquation = () => {
     if (equation !== `${result}`) {
-
       setEquation(`${result}`);
       setFirstNumber(result);
       setSecondNumber('');
@@ -120,7 +115,8 @@ function App() {
       <div className="content">
         <input type="text" value={result} className='input-result' disabled />
         <div className='input-equation'>
-          <input type="text" value={equation} disabled />
+          {/* <input type="text" value={equation} disabled /> */}
+          <p>{equation}</p>
         </div>
         <div className="calc-keyboard">
           <Button value={'AC'} handleClick={clearEquation} />
