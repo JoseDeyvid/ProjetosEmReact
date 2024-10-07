@@ -1,0 +1,50 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.content {
+  background-color: #e8e8e8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 330px;
+}
+
+.label-timer {
+  border: 2px solid black;
+  font-size: 36px;
+  margin-top: 1.5rem;
+  text-align: center;
+  max-width: 200px;
+  padding: .8rem;
+  margin-bottom: 1rem;
+}
+
+.group-btns {
+  display: flex;
+  gap: .2rem;
+  margin-bottom: 2.5rem;
+}
+
+.laps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .2rem;
+  margin: 1rem 0 2rem;
+}
+
+
+.laps label {
+  border-bottom: 1px solid #c7c7c7;
+  padding: .4rem;
+}
+.laps label:nth-child(odd) {
+  background-color: #c7c7c7;
+}

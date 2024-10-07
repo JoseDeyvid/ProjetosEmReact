@@ -11,20 +11,20 @@ function App() {
       <div className="content">
         <label className="label-timer">00:00:00</label>
         {timerIsActive ?
-          <div>
+          <div className="group-btns">
             <Button title="Parar" />
             <Button title="Volta" />
             <Button title="Zerar" />
           </div>
           :
-          <div>
+          <div className="group-btns">
             <Button title="Iniciar" />
             <Button title="Zerar" />
           </div>}
 
         <label>Voltas:</label>
         {timerIsActive &&
-          <div>
+          <div className="laps">
             <label>Volta 1: 00:02:42</label>
             <label>Volta 2: 00:04:42</label>
             <label>Volta 3: 01:07:42</label>
