@@ -4,7 +4,7 @@ import Button from "./components/Button"
 
 function App() {
 
-  const [timerIsActive, setTimerIsActive] = useState(true);
+  const [timerIsActive, setTimerIsActive] = useState(false);
 
   return (
     <div className="container">
@@ -22,7 +22,7 @@ function App() {
             <Button title="Zerar" />
           </div>}
 
-        <label>Voltas:</label>
+        <label className="label-laps">Voltas:</label>
         {timerIsActive &&
           <div className="laps">
             <label>Volta 1: 00:02:42</label>
