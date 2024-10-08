@@ -1,9 +1,17 @@
+import { useEffect, useState } from 'react'
 import './App.css'
 import SelectCurrency from './components/SelectCurrency'
-
+import axios from "axios";
 function App() {
 
-  const options = ["USD", "EUR", "BRL"]
+  const [options, setOptions] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://v6.exchangerate-api.com/v6/cec3c9f9369a5769492c8c92/latest/USD").then((response) => {
+      const currencies = Object.keys(response.data.conversion_rates);
+      setOptions(currencies);
+    })
+  }, [])
 
   return (
     <div className="container">

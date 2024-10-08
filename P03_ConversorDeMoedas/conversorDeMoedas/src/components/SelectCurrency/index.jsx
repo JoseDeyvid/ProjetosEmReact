@@ -6,8 +6,8 @@ const SelectCurrency = ({title, options}) => {
         <div className="select-group">
             <label htmlFor="currency-converted">{title}</label>
             <select name="currency-converted" id="currency-converted">
-                {options.map((option) => (
-                    <option value={option}>{option}</option>
+                {options.map((option, i) => (
+                    <option value={option} key={i}>{option}</option>
                 ))}
             </select>
         </div>
