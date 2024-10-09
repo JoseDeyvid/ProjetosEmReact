@@ -4,6 +4,7 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+    margin-top: 1rem;
 }
 
 .select-group select {
