@@ -1,7 +1,8 @@
 import React from 'react'
 import "./styles.css"
 
-const SelectCurrency = ({name, title, options, optionSelected, handleChangeOption}) => {
+// Componente usado para criar todos os Selects da aplicação
+const SelectCurrency = ({ name, title, options, optionSelected, handleChangeOption }) => {
     return (
         <div className="select-group">
             <label htmlFor={name}>{title}</label>
