@@ -1,11 +1,12 @@
 import React from 'react'
+import { SearchButton, SearchInput, SearchContent } from './SearchStyles'
 
 const Search = ({handleChangeSearchInput, handleClickSearch}) => {
   return (
-    <div>
-        <input type="search" name='search-city' id='search-city' onChange={handleChangeSearchInput} />
-        <button onClick={handleClickSearch}>Buscar</button>
-    </div>
+    <SearchContent>
+        <SearchInput type="search" name='search-city' id='search-city' onChange={handleChangeSearchInput} />
+        <SearchButton onClick={handleClickSearch}>Buscar</SearchButton>
+    </SearchContent>
   )
 }
 

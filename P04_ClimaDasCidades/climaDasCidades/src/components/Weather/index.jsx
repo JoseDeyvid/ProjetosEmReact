@@ -1,14 +1,14 @@
-
+import { Img, Title, Container, Info } from "./WeatherStyles"
 
 const Weather = ({city}) => {
 
   return (
-    <div>
-        <h2>{city.name}</h2>
-        <img src={city.iconUrl} alt={city.description} />
-        <p>{city.temp}ºC</p>
-        <p>{city.description}</p>
-    </div>
+    <Container>
+        <Title>{city.name}</Title>
+        <Img src={city.iconUrl} alt={city.description} />
+        <Info>{city.temp}ºC</Info>
+        <Info>{city.description}</Info>
+    </Container>
   )
 }
 
