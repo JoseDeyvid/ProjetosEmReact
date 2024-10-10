@@ -1,15 +1,15 @@
-import { Container, Title, ForecastDiv, Img} from "./ForecastStyles"
+import { Container} from "./ForecastStyles"
 
 const Forecast = ({forecastList}) => {
 
   return (
     <Container>
-        <Title>Previsão para as próximas horas</Title>
+        <h3>Previsão para as próximas horas</h3>
         {forecastList.map((forecast, i) => (
-            <ForecastDiv key={i}>
-                <Img src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`} alt={forecast.weather[0].description} />
+            <div key={i}>
+                <img src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`} alt={forecast.weather[0].description} />
                 <p>{forecast.main.temp}ºC - {forecast.weather[0].description}</p>
-            </ForecastDiv>
+            </div>
         ))}
     </Container>
   )

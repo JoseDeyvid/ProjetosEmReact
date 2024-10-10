@@ -10,22 +10,23 @@ export const Container = styled.div `
     margin-top: 1.5rem;
     padding: 1rem;
     gap: .5rem;
-`
 
-export const Title = styled.h3 `
-    font-size: 17px;
-`
+    h3 {
+        font-size: 17px;
+    }
 
-export const ForecastDiv = styled.div `
-    background-color: #fff;
-    width: 100%;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-right: .5rem;
-`
-export const Img = styled.img `
-    width: 60px;
-    height: 60px;
+    div {
+        background-color: #fff;
+        width: 100%;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: .5rem;
+
+        img {
+            width: 60px;
+            height: 60px;   
+        }
+    }
 `
