@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import {Titulo, Container} from "./AppStyles"
+import { Titulo, Container } from "./AppStyles"
 import axios from "axios"
 import Search from './components/Search'
 import Weather from './components/Weather'
@@ -12,6 +12,23 @@ function App() {
   const [forecast, setForecast] = useState([]);
   const [cityName, setCityName] = useState("");
   const apiKey = import.meta.env.VITE_API_KEY
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(async (position) => {
+      const lat = position.coords.latitude
+      const lon = position.coords.longitude
+      await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&lang=pt_br&units=metric`).then(async (res) => {
+        setCity({
+          name: res.data.name,
+          iconUrl: `https://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`,
+          temp: res.data.main.temp,
+          description: res.data.weather[0].description
+        });
+        const resForecast = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&lang=pt_br&units=metric`);
+        setForecast(resForecast.data.list.slice(0, 5));
+      })
+    })
+  }, [])
 
   const handleClickSearch = async () => {
     await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&lang=pt_br&units=metric`).then(async (res) => {
