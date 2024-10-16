@@ -44,12 +44,13 @@ function App() {
   }
 
   return (
-    <div>
-      <input type="text" name="search-bar" id="search-bar" value={searchTxt} onChange={(e) => setSearchTxt(e.target.value)} />
-      <button onClick={handleSearch}>Pesquisar</button>
-      {topics.length > 0 && <SelectTopics selectedTopic={selectedTopic} handleChangeSelectedTopic={(e) => setSelectedTopic(e.target.value)} topics={topics} />}
+    <div className='content'>
+      <div className="search-group">
+        <input type="text" name="search-bar" id="search-bar" placeholder='O que você está procurando?' value={searchTxt} onChange={(e) => setSearchTxt(e.target.value)} />
+        <button onClick={handleSearch}>Pesquisar</button>
+        {topics.length > 0 && <SelectTopics selectedTopic={selectedTopic} handleChangeSelectedTopic={(e) => setSelectedTopic(e.target.value)} topics={topics} />}
+      </div>
       {photos.length > 0 && < Album photos={photos} />}
-
     </div>
   )
 }
