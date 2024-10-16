@@ -1,8 +1,9 @@
 
 import { useEffect, useState } from 'react'
 import './App.css'
-import axios from "axios"
+import axios from "./api"
 import Album from './components/Album';
+import SelectTopics from './components/SelectTopics';
 
 function App() {
 
@@ -14,12 +15,7 @@ function App() {
 
   useEffect(() => {
     const loadTopics = async () => {
-      const res = await axios.get("/topics", {
-        baseURL: url,
-        params: {
-          client_id: import.meta.env.VITE_UNSPLASH_API
-        }
-      });
+      const res = await axios.get("/topics");
       setTopics(res.data);
     }
     loadTopics();
@@ -28,32 +24,20 @@ function App() {
   useEffect(() => {
     const loadPhotos = async () => {
       if (!selectedTopic) {
-        const res = await axios.get("/photos", {
-          baseURL: url,
-          params: {
-            client_id: import.meta.env.VITE_UNSPLASH_API
-          }
-        });
+        const res = await axios.get("/photos");
         setPhotos([...res.data]);
       } else {
-        const res = await axios.get(`/topics/${selectedTopic}/photos`, {
-          baseURL: url,
-          params: {
-            client_id: import.meta.env.VITE_UNSPLASH_API
-          }
-        })
+        const res = await axios.get(`/topics/${selectedTopic}/photos`)
         setPhotos([...res.data]);
       }
     }
     loadPhotos()
   }, [selectedTopic])
 
-  const handleSearch = async() => {
+  const handleSearch = async () => {
     const res = await axios.get("/search/photos", {
-      baseURL: url,
       params: {
-        client_id: import.meta.env.VITE_UNSPLASH_API,
-        query: searchTxt
+        query: searchTxt,
       }
     })
     setPhotos([...res.data.results])
@@ -63,18 +47,7 @@ function App() {
     <div>
       <input type="text" name="search-bar" id="search-bar" value={searchTxt} onChange={(e) => setSearchTxt(e.target.value)} />
       <button onClick={handleSearch}>Pesquisar</button>
-      {topics.length > 0 &&
-        <select value={selectedTopic} onChange={(e) => setSelectedTopic(e.target.value)}>
-          <option value={""}>All</option>
-          {topics.map((topic, i) => (
-            <option key={topic.id} value={topic.id}>
-              {/* {console.log("Id: ", topic)} */}
-              {topic.slug}
-            </option>
-          ))}
-        </select>
-      }
-
+      {topics.length > 0 && <SelectTopics selectedTopic={selectedTopic} handleChangeSelectedTopic={(e) => setSelectedTopic(e.target.value)} topics={topics} />}
       {photos.length > 0 && < Album photos={photos} />}
 
     </div>
