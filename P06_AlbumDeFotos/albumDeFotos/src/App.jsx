@@ -11,6 +11,7 @@ function App() {
   const [photos, setPhotos] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState("");
   const [searchTxt, setSearchTxt] = useState("");
+  const [photoInFocus, setPhotoInFocus] = useState();
   const url = "https://api.unsplash.com"
 
   useEffect(() => {
@@ -50,7 +51,13 @@ function App() {
         <button onClick={handleSearch}>Pesquisar</button>
         {topics.length > 0 && <SelectTopics selectedTopic={selectedTopic} handleChangeSelectedTopic={(e) => setSelectedTopic(e.target.value)} topics={topics} />}
       </div>
-      {photos.length > 0 && < Album photos={photos} />}
+      {photos.length > 0 && < Album photos={photos} setPhotoInFocus={setPhotoInFocus} />}
+      {photoInFocus &&
+        <div className='bg-photo-in-focus' onClick={() => setPhotoInFocus()}>
+          <img src={photoInFocus.urls.regular} alt={photoInFocus.description} className='photo-in-focus' />
+        </div>
+
+      }
     </div>
   )
 }
