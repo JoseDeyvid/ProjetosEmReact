@@ -23,8 +23,22 @@ function App() {
       timeStyle: 'medium',
       timeZone: timeZoneInfos.timeZone,
     }).format();
-    setTimeZonesOnScreen([...timeZonesOnScreen, {region: timeZoneInfos.timeZone, clock: currentTimeZone}])
+    setTimeZonesOnScreen([...timeZonesOnScreen, { region: timeZoneInfos.timeZone, clock: currentTimeZone }])
   }, [])
+
+  const addTimeZone = (e) => {
+    console.log(e.target.value)
+    const hourTimeZone = new Intl.DateTimeFormat('pt-BR', {
+      timeStyle: 'medium',
+      timeZone: e.target.value,
+    }).format();
+    const completeInfosTimeZone = { region: e.target.value, clock: hourTimeZone }
+    
+    const alreadyHasTimeZone = timeZonesOnScreen.find((timeZones) => timeZones.region === completeInfosTimeZone.region)
+    if (!alreadyHasTimeZone) {
+      setTimeZonesOnScreen([...timeZonesOnScreen, completeInfosTimeZone])
+    }
+  }
 
   return (
     <div>
@@ -32,9 +46,9 @@ function App() {
         <h1>Relógio Mundial</h1>
       </header>
       <main>
-        <select name="fusos" id="fusos">
+        <select name="fusos" id="fusos" onChange={(e) => addTimeZone(e)}>
           {timeZones.map((timeZone, i) => (
-            <option key={i}>{timeZone}</option>
+            <option key={i} value={timeZone}>{timeZone}</option>
           ))}
         </select>
 
