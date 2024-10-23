@@ -19,7 +19,11 @@ function App() {
 
   useEffect(() => {
     const timeZoneInfos = Intl.DateTimeFormat().resolvedOptions();
-    setTimeZonesOnScreen([...timeZonesOnScreen, timeZoneInfos.timeZone])
+    const currentTimeZone = new Intl.DateTimeFormat('pt-BR', {
+      timeStyle: 'medium',
+      timeZone: timeZoneInfos.timeZone,
+    }).format();
+    setTimeZonesOnScreen([...timeZonesOnScreen, {region: timeZoneInfos.timeZone, clock: currentTimeZone}])
   }, [])
 
   return (
@@ -36,10 +40,10 @@ function App() {
 
         {timeZonesOnScreen.length > 0 &&
           <>
-            {timeZonesOnScreen.map((timeZone) => (
-              <div>
-                <h2>{timeZone}</h2>
-                <h3>Horário</h3>
+            {timeZonesOnScreen.map((timeZone, i) => (
+              <div key={i}>
+                <h2>{timeZone.region}</h2>
+                <h3>{timeZone.clock}</h3>
               </div>
             ))}
           </>
