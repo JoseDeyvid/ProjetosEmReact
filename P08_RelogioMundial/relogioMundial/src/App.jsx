@@ -33,15 +33,19 @@ function App() {
       timeZone: e.target.value,
     }).format();
     const completeInfosTimeZone = { region: e.target.value, clock: hourTimeZone }
-    
+
     const alreadyHasTimeZone = timeZonesOnScreen.find((timeZones) => timeZones.region === completeInfosTimeZone.region)
     if (!alreadyHasTimeZone) {
       setTimeZonesOnScreen([...timeZonesOnScreen, completeInfosTimeZone])
     }
   }
 
+  const updateHour = () => {
+
+  }
+
   return (
-    <div>
+    <div className='container'>
       <header>
         <h1>Relógio Mundial</h1>
       </header>
@@ -55,7 +59,7 @@ function App() {
         {timeZonesOnScreen.length > 0 &&
           <>
             {timeZonesOnScreen.map((timeZone, i) => (
-              <div key={i}>
+              <div key={i} className='time-zones-on-screen'>
                 <h2>{timeZone.region}</h2>
                 <h3>{timeZone.clock}</h3>
               </div>
