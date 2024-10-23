@@ -1,0 +1,10 @@
+.toolbar-container {
+    display: flex;
+    gap: .3rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.toolbar-container button {
+    padding: .3rem 1rem;
+}
