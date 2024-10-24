@@ -3,14 +3,21 @@ import './App.css'
 
 function App() {
   const [spaces, setSpaces] = useState(["", "", "", "", "", "", "", "", ""])
+  const [isUserTurn, setIsUserTurn] = useState(true)
+  const [winner, setWinner] = useState("");
   return (
-    <div>
-      <h1>Jogo da Velha</h1>
-      <p>Status: </p>
-      <p>O vencedor é: X!</p>
-      {spaces.map((space, i) => (
-        <div key={i}>{space}</div>
-      ))}
+    <div className='container'>
+      <main className='content'>
+        <h1>Jogo da Velha</h1>
+        <p>Status: {} </p>
+        {winner && <p className='txt-winner'>O vencedor é: {winner}!</p>}
+        <div className="spaces">
+          {spaces.map((space, i) => (
+            <div key={i} className='space'>{space}</div>
+          ))}
+        </div>
+        <button className='btn-restart'>Reiniciar Jogo</button>
+      </main>
     </div>
   )
 }
