@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import './App.css'
+import Hour from './components/Hour';
 
 function App() {
 
@@ -15,34 +16,17 @@ function App() {
     "Europe/Berlin",
     "Asia/Tokyo",
   ];
-  const [timeZonesOnScreen, setTimeZonesOnScreen] = useState([]);
-
-  useEffect(() => {
-    const timeZoneInfos = Intl.DateTimeFormat().resolvedOptions();
-    const currentTimeZone = new Intl.DateTimeFormat('pt-BR', {
-      timeStyle: 'medium',
-      timeZone: timeZoneInfos.timeZone,
-    }).format();
-    setTimeZonesOnScreen([...timeZonesOnScreen, { region: timeZoneInfos.timeZone, clock: currentTimeZone }])
-  }, [])
+  const currentTimeZone = new Intl.DateTimeFormat().resolvedOptions().timeZone
+  const [timeZonesOnScreen, setTimeZonesOnScreen] = useState([currentTimeZone]);
 
   const addTimeZone = (e) => {
-    console.log(e.target.value)
-    const hourTimeZone = new Intl.DateTimeFormat('pt-BR', {
-      timeStyle: 'medium',
-      timeZone: e.target.value,
-    }).format();
-    const completeInfosTimeZone = { region: e.target.value, clock: hourTimeZone }
 
-    const alreadyHasTimeZone = timeZonesOnScreen.find((timeZones) => timeZones.region === completeInfosTimeZone.region)
+    const alreadyHasTimeZone = timeZonesOnScreen.find((timeZone) => timeZone === e.target.value)
     if (!alreadyHasTimeZone) {
-      setTimeZonesOnScreen([...timeZonesOnScreen, completeInfosTimeZone])
+      setTimeZonesOnScreen([...timeZonesOnScreen, e.target.value])
     }
   }
 
-  const updateHour = () => {
-
-  }
 
   return (
     <div className='container'>
@@ -60,12 +44,13 @@ function App() {
           <>
             {timeZonesOnScreen.map((timeZone, i) => (
               <div key={i} className='time-zones-on-screen'>
-                <h2>{timeZone.region}</h2>
-                <h3>{timeZone.clock}</h3>
+                <h2>{timeZone}</h2>
+                <Hour timeZone={timeZone} />
               </div>
             ))}
           </>
         }
+        <button onClick={() => updateHour()}>Test</button>
       </main>
     </div>
   )
