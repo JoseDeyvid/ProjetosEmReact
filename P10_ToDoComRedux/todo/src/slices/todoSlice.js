@@ -16,13 +16,20 @@ const todoSlice = createSlice({
             })
         },
         completeTask: (state, action) => {
-
+            state.list.map((task) => {
+                if(task.id === action.payload) {
+                    task.completed = !task.completed;
+                }
+            })
         },
         deleteTask: (state, action) => {
-            state.list = state.list.filter((list) => action.payload !== list.id)
+            state.list = state.list.filter((list) => action.payload !== list.id);
+        },
+        changeFilter: (state, action) => {
+            state.filter = action.payload;
         }
     }
 })
 
 export default todoSlice.reducer;
-export const { addNewTask, completeTask, deleteTask } = todoSlice.actions;
+export const { addNewTask, completeTask, deleteTask, changeFilter } = todoSlice.actions;
