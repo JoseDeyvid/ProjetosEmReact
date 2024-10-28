@@ -6,19 +6,23 @@ const AddTask = () => {
     const dispatch = useDispatch();
     const [task, setTask] = useState('');
 
-    const handleAddNewtask = () => {
+    const handleAddNewtask = (e) => {
+        e.preventDefault()
         if (!task.trim())
             return
-        
+
         dispatch(addNewTask(task));
         setTask('');
 
     }
     return (
-        <div>
-            <input type="text" value={task} onChange={(e) => setTask(e.target.value)} placeholder='Adicione uma tarefa...' />
-            <button onClick={handleAddNewtask}>Enviar</button>
-        </div>
+        <form>
+
+            <div>
+                <input type="text" value={task} onChange={(e) => setTask(e.target.value)} placeholder='Adicione uma tarefa...' />
+                <button onClick={handleAddNewtask}>Enviar</button>
+            </div>
+        </form>
     )
 }
 
