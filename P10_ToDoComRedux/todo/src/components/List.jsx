@@ -25,11 +25,11 @@ const List = () => {
     }
 
     return (
-        <div>
+        <div className='list-container'>
             <div className="status-options">
                 <button onClick={() => handleChangeFilter('all')}>Todas</button>
                 <button onClick={() => handleChangeFilter('completeTasks')}>Completas</button>
-                <button onClick={() => handleChangeFilter('incompleteTasks')}>incompletas</button>
+                <button onClick={() => handleChangeFilter('incompleteTasks')}>Incompletas</button>
             </div>
             <div className="list">
                 {renderedList.map((task) => (

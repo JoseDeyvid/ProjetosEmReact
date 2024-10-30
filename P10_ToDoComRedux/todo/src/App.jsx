@@ -5,10 +5,13 @@ import List from './components/List'
 function App() {
 
   return (
-    <div>
+    <div className='container'>
       <h1>Lista de tarefas com Redux</h1>
-      <AddTask/>
-      <List/>
+      <main className='main'>
+        <AddTask />
+        <List />
+      </main>
+
     </div>
   )
 }
