@@ -1,0 +1,17 @@
+.userInputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.userInputs label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.userInputs label input {
+    padding: .2rem .5rem;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+}

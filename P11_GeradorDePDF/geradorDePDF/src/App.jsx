@@ -41,7 +41,7 @@ function App() {
       <header>
         <h1>Gerador de PDF</h1>
       </header>
-      <main>
+      <main className='content'>
         <UserInputs title={title} setTitle={setTitle} description={description} setDescription={setDescription} />
         <TextStyles fontSize={fontSize} setFontSize={setFontSize} txtColor={txtColor} setTxtColor={setTxtColor} isBold={isBold} setIsBold={setIsBold} />
         <UploadImage imageToPdf={imageToPdf} setImageToPdf={setImageToPdf} />

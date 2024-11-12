@@ -1,4 +1,5 @@
 import React from 'react'
+import './styles.css'
 
 const UploadImage = ({imageToPdf, setImageToPdf}) => {
     const handleImageUpload = (e) => {

@@ -1,0 +1,16 @@
+button {
+    background-color: #0633fb;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    padding: .5rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    width: fit-content;
+}
+
+button:hover {
+    background-color: #062096;
+}
