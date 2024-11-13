@@ -5,8 +5,8 @@ function App() {
 
   const [selectedImage, setSelectedImage] = useState(0);
   const [images] = useState([
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzybErZ1U5YECIDnMkY4IEFtg2DGGVhDg7iQ&s",
-    "https://botafogofrsocialolimpico.com.br/wp-content/uploads/2024/06/1-1.png",
+    "https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg.webp",
+    "https://static.vecteezy.com/ti/vetor-gratis/p1/9169455-ceu-dourado-por-do-sol-na-costa-natureza-paisagem-vetor.jpg",
     "https://static.preparaenem.com/2024/04/2-paisagem-nos-alpes.jpg"
 
   ])
@@ -34,9 +34,11 @@ function App() {
         <img src={images[selectedImage]} />
         <button onClick={handleClickPreviousImg} className='btn-previous'>Anterior</button>
         <button onClick={handleClickNextImg} className='btn-next'>Próximo</button>
-        {images.map((image, i) => (
-          <div key={i} className={`bullet ${i === selectedImage ? "selected" : ""}`}></div>
-        ))}
+        <div className="bullets">
+          {images.map((image, i) => (
+            <div key={i} className={`bullet ${i === selectedImage ? "selected" : ""}`}></div>
+          ))}
+        </div>
       </main>
     </div>
   )

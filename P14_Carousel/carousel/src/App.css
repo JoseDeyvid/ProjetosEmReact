@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  border: 1px solid #000;
+  position: relative;
+  width: 600px;
+  height: 400px;
+}
+
+.btn-previous {
+  position: absolute;
+  left: 0;
+  bottom: 50%;
+  transform: translate(0, 50%);
+}
+
+.btn-next {
+  position: absolute;
+  right: 0%;
+  bottom: 50%;
+  transform: translate(0, 50%);
+}
+
+.bullets {
+  display: flex;
+  gap: .2rem;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.bullet {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  background-color: #878080;
+}
+
+.selected {
+  background-color: #fff;
+}
