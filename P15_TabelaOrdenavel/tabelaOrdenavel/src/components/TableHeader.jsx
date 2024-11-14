@@ -1,12 +1,12 @@
 import React from 'react'
 
-const TableHeader = () => {
+const TableHeader = ({onColumnClick}) => {
   return (
     <thead>
         <tr>
-            <th>Nome</th>
-            <th>Idade</th>
-            <th>Cargo</th>
+            <th onClick={() => onColumnClick('nome')}>Nome</th>
+            <th onClick={() => onColumnClick('idade')}>Idade</th>
+            <th onClick={() => onColumnClick('cargo')}>Cargo</th>
         </tr>
     </thead>
   )
