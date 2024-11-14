@@ -2,7 +2,13 @@ import React from 'react'
 
 const TableHeader = () => {
   return (
-    <div>TableHeader</div>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Cargo</th>
+        </tr>
+    </thead>
   )
 }
 

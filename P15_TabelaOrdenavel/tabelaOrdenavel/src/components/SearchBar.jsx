@@ -1,8 +1,8 @@
 import React from 'react'
 
-const SearchBar = () => {
+const SearchBar = ({searchTxt, setSearchTxt}) => {
   return (
-    <div>SearchBar</div>
+    <input type='text' placeholder='Pesquisar...' value={searchTxt} onChange={(e) => setSearchTxt(e.target.value)} />
   )
 }
 

@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 function App() {
 
-  const [data, setData] = useState([
+  const [data] = useState([
     { nome: "Ana", idade: 25, cargo: "Engenheira" },
     { nome: "João", idade: 30, cargo: "Desenvolvedor" },
     { nome: "Maria", idade: 22, cargo: "Designer" },
@@ -13,14 +13,18 @@ function App() {
     { nome: "Sofia", idade: 28, cargo: "Analista" },
   ]);
 
+  const [searchTxt, setSearchTxt] = useState('')
+
   return (
     <div className="container">
       <h1>Tabela de Usuários</h1>
-      <SearchBar />
+      <SearchBar searchTxt={searchTxt} setSearchTxt={setSearchTxt} />
       <table>
         <TableHeader />
         <tbody>
-          <TableRow />
+          {data.map((user, i) => (
+            <TableRow key={i} user={user} />
+          ))}
         </tbody>
       </table>
     </div>

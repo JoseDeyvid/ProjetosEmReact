@@ -1,8 +1,12 @@
 import React from 'react'
 
-const TableRow = () => {
+const TableRow = ({user}) => {
   return (
-    <div>TableRow</div>
+    <tr>
+        <td>{user.nome}</td>
+        <td>{user.idade}</td>
+        <td>{user.cargo}</td>
+    </tr>
   )
 }
 
