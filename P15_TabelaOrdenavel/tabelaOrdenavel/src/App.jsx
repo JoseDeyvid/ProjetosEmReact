@@ -13,9 +13,10 @@ function App() {
     { nome: "Sofia", idade: 28, cargo: "Analista" },
     { nome: "Sofia", idade: 20, cargo: "Designer" },
   ]);
-  const [reversed, setReversed] = useState(false);
 
+  const [reversed, setReversed] = useState(false);
   const [sortKey, setSortKey] = useState();
+  const [searchTxt, setSearchTxt] = useState('')
 
   const sortedData = reversed ? [...data].sort((a, b) => {
     if (sortKey) {
@@ -39,8 +40,7 @@ function App() {
 
     })
 
-
-  const [searchTxt, setSearchTxt] = useState('')
+  const filteredData = sortedData.filter((user) => user.nome.toLowerCase().includes(searchTxt.toLowerCase()) || user.cargo.toLowerCase().includes(searchTxt.toLowerCase()))
 
   const onColumnClick = (key) => {
     if (sortKey === key) {
@@ -58,7 +58,7 @@ function App() {
       <table>
         <TableHeader onColumnClick={onColumnClick} />
         <tbody>
-          {sortedData.map((user, i) => (
+          {filteredData.map((user, i) => (
             <TableRow key={i} user={user} />
           ))}
         </tbody>
