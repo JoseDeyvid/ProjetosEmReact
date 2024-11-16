@@ -7,15 +7,29 @@ function App() {
   const [posts, setPosts] = useState([])
   const [page, setPage] = useState(1)
 
-  window.addEventListener('scroll', () => {
-    console.log('Ta scrollando')
-  })
+  const checkIfUserIsEndOfPage = () => {
+    const { scrollHeight } = document.documentElement;
+    if (window.innerHeight + window.scrollY >= scrollHeight - 100) {
+      setPage((prevPage) => {
+        window.removeEventListener('scroll', checkIfUserIsEndOfPage);
+        return prevPage + 1
+      })
+    }
+  }
+
+  useEffect(() => {
+    if (posts.length > 0) {
+      window.addEventListener('scroll', checkIfUserIsEndOfPage)
+    }
+  }, [posts])
 
   useEffect(() => {
     const loadPosts = async () => {
       try {
         const res = await axios.get(`https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=10`)
-        setPosts(res.data)
+        if (res.data.length > 0) {
+          setPosts((prevPosts) => [...prevPosts, ...res.data]);
+        }
       } catch (error) {
         console.log(error)
       }
@@ -23,14 +37,15 @@ function App() {
     }
 
     loadPosts()
-  }, [])
+  }, [page])
 
   return (
     <div className='container'>
       <h1>Infinite Scroll</h1>
       {posts.length > 0 ? posts.map((post) => (
         <div className='post' key={post.id}>
-          <h5>{post.title}</h5>
+          <p>{post.id}</p>
+          <h3>{post.title}</h3>
           <p>{post.body}</p>
         </div>
       )) : <p>Carregando posts...</p>}

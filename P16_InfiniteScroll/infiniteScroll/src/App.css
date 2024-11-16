@@ -1,0 +1,12 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.post {
+    border: 1px solid #000;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    text-align: left;
+}
