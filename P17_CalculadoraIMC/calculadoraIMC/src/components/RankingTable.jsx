@@ -17,7 +17,7 @@ const RankingTable = () => {
                 <tr>
                     <td>{info.classification}</td>
                     <td>{info.info}</td>
-                    <td>{info.infoClass}</td>
+                    <td>{info.obesity}</td>
                 </tr>
             ))}
         </tbody>

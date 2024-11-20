@@ -8,7 +8,7 @@ function App() {
   const [result, setResult] = useState(
     {
       imc: 22.9,
-      class: "Normal"
+      info: "Normal"
     }
   )
   {
@@ -16,7 +16,7 @@ function App() {
   }
   return (
     <div className='container'>
-      {!!result ? <Result result={result}/> : <Calculator/>}
+      {!!result ? <Result result={result} /> : <Calculator />}
     </div>
   )
 }

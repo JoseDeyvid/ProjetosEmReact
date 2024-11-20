@@ -1,0 +1,46 @@
+:root {
+  --dark-blue: #021526;
+  --medium-blue: #052748;
+  --red-bg: #dc2626;
+  --gray: #555;
+  --txt-green: #02af02;
+  --txt-orange: #FFA500;
+  --txt-red: #e50000;
+  --white: #fff;
+}
+
+body {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+button {
+  padding: .8rem 1rem;
+  cursor: pointer;
+  background-color: var(--red-bg);
+  border: none;
+  color: var(--white);
+  width: 100%;
+}
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table td {
+  border-bottom: 1px solid var(--gray);
+  padding: .3rem;
+}
