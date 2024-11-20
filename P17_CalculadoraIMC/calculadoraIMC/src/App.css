@@ -46,6 +46,10 @@
   color: var(--txt-red);
 }
 
+.yellow {
+  color: var(--txt-yellow);
+}
+
 .rankingTable {
   /* padding: 1rem; */
   margin-bottom: 2rem;

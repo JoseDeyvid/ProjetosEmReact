@@ -5,18 +5,13 @@ import Result from './components/Result'
 
 
 function App() {
-  const [result, setResult] = useState(
-    {
-      imc: 22.9,
-      info: "Normal"
-    }
-  )
+  const [result, setResult] = useState()
   {
 
   }
   return (
     <div className='container'>
-      {!!result ? <Result result={result} /> : <Calculator />}
+      {!!result ? <Result result={result} setResult={setResult} /> : <Calculator setResult={setResult} />}
     </div>
   )
 }
