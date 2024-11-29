@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Layout from './pages/Layout'
-import Home from './pages/Home'
-import Admin from './pages/Admin'
-import NewPost from './pages/NewPost'
-import Post from './pages/Post'
-import EditPost from './pages/EditPost'
+import Layout from './pages/Layout/Layout'
+import Home from './pages/Home/Home'
+import Admin from './pages/Admin/Admin'
+import NewPost from './pages/NewPost/NewPost'
+import Post from './pages/Post/Post'
+import EditPost from './pages/EditPost/EditPost'
 
 function App() {
 

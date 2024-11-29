@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  color: #fff;
+}
+
 a {
   color: #fff;
   text-decoration: none;
@@ -11,4 +15,8 @@ a {
 
 ul {
   list-style-type: none;
+}
+
+h3, p{
+  color: #fff;
 }
