@@ -1,0 +1,31 @@
+nav {
+    background-color: #04021a;
+
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    align-items: center;
+}
+
+.navbarList {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    align-items: center;
+}
+
+.navbarList li a {
+    color: #ccc;
+    transition: .5s;
+}
+
+.navbarList li a:hover {
+    color: #fff;
+}
+
+.navbarList li:nth-child(even) a {
+    border: 1px solid #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 18px;
+    color: #fff;
+}
