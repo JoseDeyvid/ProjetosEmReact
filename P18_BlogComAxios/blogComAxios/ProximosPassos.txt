@@ -8,3 +8,6 @@ DUVIDAS
 E para buscar um post só, eu preciso executar a mesma função sempre que acesso a rota Post ou EditPost, porém nesse caso de fato é necessário
 fazer uma nova request sempre, mas minha dúvida é: Vale a pena mover essa função que busca um único post para dentro do Context, pois nesse caso
 a função de fato tem que ser chamada sempre que a rota é acessada e eu faria isso apenas para não possuir 2 funções iguais na rota Post e EditPost.
+
+- Seria interessante eu centralizar todas as requisições de posts no context? Mesmo aquelas que utilizo em um local só?
+- Quais são as melhores maneiras de implementar os states que eu repito nas telas? Ex: isFetching e isLoading

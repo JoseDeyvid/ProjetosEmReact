@@ -16,7 +16,7 @@ const NewPost = () => {
     if (title.trim() && body.trim()) {
       try {
         setIsFetching(true);
-        const res = await api.post('/posts', {
+        await api.post('/posts', {
           title,
           body,
           userId: 1

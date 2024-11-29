@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import api from '../../api';
 import FormControl from '../../components/FormControl/FormControl';
 
@@ -7,6 +7,8 @@ const EditPost = () => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isFetching, setIsFetching] = useState(false)
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loadPost = async () => {
@@ -21,6 +23,30 @@ const EditPost = () => {
     }
     loadPost();
   }, [])
+
+  const editPostHandler = async (e) => {
+    e.preventDefault();
+
+    if (post.title.trim() && post.body.trim()) {
+      try {
+        setIsFetching(true);
+        await api.patch(`posts/${post.id}`, {
+          title: post.title,
+          body: post.body,
+        })
+        confirm("Post editado com sucesso!")
+        navigate("/")
+      } catch (error) {
+        alert(error)
+      } finally {
+        setIsFetching(false);
+      }
+    } else {
+      alert("Necessário preencher todos os campos!")
+    }
+
+  }
+
   return (
     <div>
       {isLoading ?
@@ -30,11 +56,12 @@ const EditPost = () => {
           {!post ?
             <h3>Não foi possível carregar esse post.</h3>
             :
-            <div>
+            <form onSubmit={(e) => editPostHandler(e)}>
               <h1>Editando: {post.title}</h1>
               <FormControl id={"titleEditPost"} labelTitle={"Título: "} value={post.title} setValue={(e) => setPost({ ...post, title: e.target.value })} />
               <FormControl id={"bodyEditPost"} labelTitle={"Descrição: "} value={post.body} setValue={(e) => setPost({ ...post, body: e.target.value })} />
-            </div>
+              <button type='submit' disabled={isFetching}>Editar Post</button>
+            </form>
 
           }
         </>
