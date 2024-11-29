@@ -5,6 +5,7 @@ import api from '../../api';
 const Post = () => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadPost = async () => {
@@ -13,21 +14,30 @@ const Post = () => {
         setPost(res.data)
       } catch (error) {
         setPost(null)
+      } finally {
+        setIsLoading(false)
       }
     }
     loadPost();
   }, [])
   return (
     <div>
-      {!post ?
-        <h3>Não foi possível carregar esse post.</h3>
+      {isLoading ?
+        <h3>Carregando post...</h3>
         :
-        <div>
-          <h2>{post.title}</h2>
-          <p>{post.body}</p>
-        </div>
+        <>
+          {!post ?
+            <h3>Não foi possível carregar esse post.</h3>
+            :
+            <div>
+              <h2>{post.title}</h2>
+              <p>{post.body}</p>
+            </div>
 
+          }
+        </>
       }
+
 
     </div>
   )

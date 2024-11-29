@@ -1,20 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import api from '../../api'
+import { PostContext } from '../../contexts/PostContext'
 
 const Admin = () => {
-  const [posts, setPosts] = useState([])
-
-  useEffect(() => {
-    const loadPosts = async () => {
-      try {
-        const res = await api.get("posts")
-        setPosts(res.data);
-      } catch (error) {
-        setPosts([])
-      }
-    }
-    loadPosts();
-  }, [])
+  const { posts } = useContext(PostContext)
 
   return (
     <div>

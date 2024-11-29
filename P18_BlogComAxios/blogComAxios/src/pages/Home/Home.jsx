@@ -1,25 +1,10 @@
 import "./Home.css"
-import React, { useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { Link } from "react-router-dom";
-import api from "../../api";
+import { PostContext } from "../../contexts/PostContext";
+
 const Home = () => {
-  const [posts, setPosts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const loadPosts = async () => {
-      try {
-        const res = await api.get("posts")
-        setPosts(res.data);
-      } catch (error) {
-        setPosts([])
-      } finally {
-        setIsLoading(false)
-      }
-    }
-    loadPosts();
-  }, [])
-
+  const { posts, isLoading } = useContext(PostContext)
   return (
     <div>
       {isLoading ?
