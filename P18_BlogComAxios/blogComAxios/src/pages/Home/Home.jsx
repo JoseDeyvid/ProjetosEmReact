@@ -15,7 +15,7 @@ const Home = () => {
             <h3>Falha ao carregar os posts...</h3>
             :
             <>
-              <h1>ÚLTIMOS POSTS</h1>
+              <h1>Últimos posts</h1>
               {posts.map((post) => (
                 <div key={post.id}>
                   <h3>{post.title}</h3>

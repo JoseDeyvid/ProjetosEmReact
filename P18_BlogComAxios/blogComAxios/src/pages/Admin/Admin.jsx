@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
-import api from '../../api'
 import { PostContext } from '../../contexts/PostContext'
+import { Link } from 'react-router-dom'
 
 const Admin = () => {
   const { posts } = useContext(PostContext)
+
 
   return (
     <div>
@@ -12,7 +13,7 @@ const Admin = () => {
         <div className="managePost" key={post.id}>
           <h2>{post.title}</h2>
           <p>{post.body}</p>
-          <button>Editar</button>
+          <Link to={`/edit/${post.id}`}>Editar</Link>
           <button>Excluir</button>
         </div>
       ))}

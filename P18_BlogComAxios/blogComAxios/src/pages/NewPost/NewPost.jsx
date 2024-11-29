@@ -1,17 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
+import FormControl from '../../components/FormControl/FormControl'
 
 const NewPost = () => {
+  const [title, setTitle] = useState("")
+  const [body, setBody] = useState("")
   return (
     <div>
-      <h2>Inserir novo post: </h2>
-      <div className="formControl">
-        <label htmlFor="postTitle">Título:</label>
-        <input type="text" id='postTitle' name='postTitle' placeholder='Digite o título...' />
-      </div>
-      <div className="formControl">
-        <label htmlFor="postBody">Descrição:</label>
-        <input type="text" id='postBody' name='postBody' placeholder='Digite o conteúdo...' />
-      </div>
+      <h1>Inserir novo post: </h1>
+      <FormControl id={"titleNewPost"} labelTitle={"Título: "} setValue={(e) => setTitle(e.target.value)} value={title} />
+      <FormControl id={"bodyNewPost"} labelTitle={"Descrição: "} setValue={(e) => setBody(e.target.value)} value={body} />
       <button>Criar post</button>
     </div>
   )

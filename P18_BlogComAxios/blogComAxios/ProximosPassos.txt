@@ -1,0 +1,10 @@
+
+
+
+
+
+DUVIDAS
+- Para buscar todos os posts, eu coloquei dentro de um Context para que não precise chamar a api sempre que eu acessar Home ou Admin.
+E para buscar um post só, eu preciso executar a mesma função sempre que acesso a rota Post ou EditPost, porém nesse caso de fato é necessário
+fazer uma nova request sempre, mas minha dúvida é: Vale a pena mover essa função que busca um único post para dentro do Context, pois nesse caso
+a função de fato tem que ser chamada sempre que a rota é acessada e eu faria isso apenas para não possuir 2 funções iguais na rota Post e EditPost.
