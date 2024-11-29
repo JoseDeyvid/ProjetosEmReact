@@ -1,7 +1,7 @@
 import "./Home.css"
 import React, { useEffect, useState } from 'react'
-import axios from "../../api"
 import { Link } from "react-router-dom";
+import api from "../../api";
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -9,7 +9,7 @@ const Home = () => {
   useEffect(() => {
     const loadPosts = async () => {
       try {
-        const res = await axios.get("posts")
+        const res = await api.get("posts")
         setPosts(res.data);
       } catch (error) {
         setPosts([])
