@@ -2,3 +2,10 @@
     background-color: #0a072a;
     min-height: 100vh;
 }
+
+.content {
+    padding-top: 90px;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}

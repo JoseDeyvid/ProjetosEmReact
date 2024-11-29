@@ -1,0 +1,15 @@
+.formControl {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem 0;
+}
+
+.formControl label {
+    margin-bottom: .2rem;
+}
+
+.formControl input {
+    padding: .3rem;
+    border-radius: 6px;
+}
+

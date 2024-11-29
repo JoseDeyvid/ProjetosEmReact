@@ -1,3 +1,4 @@
+import "./NewPost.css"
 import React, { useState } from 'react'
 import FormControl from '../../components/FormControl/FormControl'
 import api from '../../api'
@@ -35,12 +36,14 @@ const NewPost = () => {
 
   }
   return (
-    <form onSubmit={(e) => createPostHandler(e)}>
+    <div className="newPostContainer">
       <h1>Inserir novo post: </h1>
-      <FormControl id={"titleNewPost"} labelTitle={"Título: "} setValue={(e) => setTitle(e.target.value)} value={title} />
-      <FormControl id={"bodyNewPost"} labelTitle={"Descrição: "} setValue={(e) => setBody(e.target.value)} value={body} />
-      <button type='submit' disabled={isFetching}>Criar post</button>
-    </form>
+      <form onSubmit={(e) => createPostHandler(e)}>
+        <FormControl id={"titleNewPost"} labelTitle={"Título: "} setValue={(e) => setTitle(e.target.value)} value={title} placeholder={"Digite o título..."} />
+        <FormControl id={"bodyNewPost"} labelTitle={"Descrição: "} setValue={(e) => setBody(e.target.value)} value={body} placeholder={"Digite a descrição..."} />
+        <button className="btn" type='submit' disabled={isFetching}>Criar post</button>
+      </form>
+    </div>
   )
 }
 

@@ -1,3 +1,4 @@
+import "./Admin.css"
 import React, { useContext, useEffect, useState } from 'react'
 import { PostContext } from '../../contexts/PostContext'
 import { Link } from 'react-router-dom'
@@ -20,14 +21,16 @@ const Admin = () => {
   }
 
   return (
-    <div>
+    <div className='adminContainer'>
       <h1>Gerenciar posts</h1>
       {posts.map((post) => (
         <div className="managePost" key={post.id}>
           <h2>{post.title}</h2>
           <p>{post.body}</p>
-          <Link to={`/edit/${post.id}`} disabled={isFetching}>Editar</Link>
-          <button onClick={() => deletePostHandler(post.id)} disabled={isFetching}>Excluir</button>
+          <div className="actions">
+            <Link to={`/edit/${post.id}`} className='btn' disabled={isFetching}>Editar</Link>
+            <button className='btn' onClick={() => deletePostHandler(post.id)} disabled={isFetching}>Excluir</button>
+          </div>
         </div>
       ))}
 

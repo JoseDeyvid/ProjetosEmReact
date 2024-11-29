@@ -58,8 +58,8 @@ const EditPost = () => {
             :
             <form onSubmit={(e) => editPostHandler(e)}>
               <h1>Editando: {post.title}</h1>
-              <FormControl id={"titleEditPost"} labelTitle={"Título: "} value={post.title} setValue={(e) => setPost({ ...post, title: e.target.value })} />
-              <FormControl id={"bodyEditPost"} labelTitle={"Descrição: "} value={post.body} setValue={(e) => setPost({ ...post, body: e.target.value })} />
+              <FormControl id={"titleEditPost"} labelTitle={"Título: "} value={post.title} setValue={(e) => setPost({ ...post, title: e.target.value })} placeholder={"Digite o título..."} />
+              <FormControl id={"bodyEditPost"} labelTitle={"Descrição: "} value={post.body} setValue={(e) => setPost({ ...post, body: e.target.value })} placeholder={"Digite a descrição..."} />
               <button type='submit' disabled={isFetching}>Editar Post</button>
             </form>
 

@@ -6,7 +6,7 @@ import { PostContext } from "../../contexts/PostContext";
 const Home = () => {
   const { posts, isLoading } = useContext(PostContext)
   return (
-    <div>
+    <div className="homeContainer">
       {isLoading ?
         <h3>Carregando posts...</h3>
         :
@@ -16,13 +16,15 @@ const Home = () => {
             :
             <>
               <h1>Últimos posts</h1>
-              {posts.map((post) => (
-                <div key={post.id}>
-                  <h3>{post.title}</h3>
-                  <p>{post.body}</p>
-                  <Link to={`/posts/${post.id}`}>Ler mais</Link>
-                </div>
-              ))}
+              <div className="posts">
+                {posts.map((post) => (
+                  <div key={post.id} className="post">
+                    <h3>{post.title}</h3>
+                    <p>{post.body}</p>
+                    <Link to={`/posts/${post.id}`} className="btn">Ler mais</Link>
+                  </div>
+                ))}
+              </div>
             </>
           }
         </>

@@ -1,0 +1,9 @@
+.newPostContainer {
+    width: 100%;
+    margin: 0 1rem;
+    max-width: 800px;
+}
+
+.newPostContainer h1 {
+    text-align: center;
+}
