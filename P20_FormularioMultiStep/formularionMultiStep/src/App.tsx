@@ -3,6 +3,7 @@ import "./App.css";
 import ReviewForm from "./components/ReviewForm";
 import SendReview from "./components/SendReview";
 import UserForm from "./components/UserForm";
+import { Review, User } from "./utils/Types";
 
 import { PiUser } from "react-icons/pi";
 import { CiStar } from "react-icons/ci";
@@ -11,7 +12,24 @@ import { RiArrowLeftWideFill } from "react-icons/ri";
 import { RiArrowRightWideFill } from "react-icons/ri";
 
 function App() {
-  const stepsComponents = [<UserForm />, <ReviewForm />, <SendReview />];
+  const [user, setUser] = useState<User>({
+    comment: "",
+    email: "",
+    name: "",
+    review: null,
+  });
+
+  const handleChangeUser = (key: string, value: string | Review) => {
+    console.log(user);
+    setUser((prev) => {
+      return { ...prev, [key]: value };
+    });
+  };
+  const stepsComponents = [
+    <UserForm user={user} handleChangeUser={handleChangeUser} />,
+    <ReviewForm />,
+    <SendReview />,
+  ];
   const [step, setStep] = useState(0);
 
   const handleChangeStep = (newStep: number, e?: FormEvent) => {
