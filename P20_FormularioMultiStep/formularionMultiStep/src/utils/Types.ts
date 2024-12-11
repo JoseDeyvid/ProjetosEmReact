@@ -1,8 +1,8 @@
 export enum Review {
-  Unsatisfied = "UNSATISFIED",
+  Unsatisfied = "INSATISFEITO",
   Normal = "NORMAL",
-  Satisfied = "SATISFIED",
-  VerySatisfied = "VERY SATISFIED",
+  Satisfied = "SATISFEITO",
+  VerySatisfied = "MUTO SATISFEITO",
 }
 
 export type User = {

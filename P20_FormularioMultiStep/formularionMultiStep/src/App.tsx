@@ -27,7 +27,7 @@ function App() {
   const stepsComponents = [
     <UserForm user={user} handleChangeUser={handleChangeUser} />,
     <ReviewForm user={user} handleChangeUser={handleChangeUser} />,
-    <SendReview />,
+    <SendReview user={user} />,
   ];
   const [step, setStep] = useState(0);
 
@@ -52,14 +52,25 @@ function App() {
         </div>
         <form onSubmit={(e) => handleChangeStep(step + 1, e)}>
           {stepsComponents[step]}
-          <button type="button" onClick={() => handleChangeStep(step - 1)}>
+          <button
+            type="button"
+            onClick={() => handleChangeStep(step - 1)}
+            disabled={step === 0}
+          >
             <RiArrowLeftWideFill />
             Voltar
           </button>
-          <button type="submit">
-            Avançar
-            <RiArrowRightWideFill />
-          </button>
+          {step === stepsComponents.length - 1 ? (
+            <button type="submit">
+              Enviar
+              <FiSend />
+            </button>
+          ) : (
+            <button type="submit">
+              Avançar
+              <RiArrowRightWideFill />
+            </button>
+          )}
         </form>
       </div>
     </div>
