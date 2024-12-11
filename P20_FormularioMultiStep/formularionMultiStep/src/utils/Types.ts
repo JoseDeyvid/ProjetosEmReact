@@ -2,7 +2,7 @@ export enum Review {
   Unsatisfied = "INSATISFEITO",
   Normal = "NORMAL",
   Satisfied = "SATISFEITO",
-  VerySatisfied = "MUTO SATISFEITO",
+  VerySatisfied = "MUTO_SATISFEITO",
 }
 
 export type User = {

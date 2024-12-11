@@ -38,7 +38,7 @@ function App() {
     setStep(newStep);
   };
   return (
-    <div>
+    <div className="container">
       <h1>Deixe sua avaliação</h1>
       <p>
         Ficamos felizes com a sua compra. Utilize o formulário abaixo para
@@ -46,31 +46,43 @@ function App() {
       </p>
       <div className="content">
         <div className="steps">
-          <PiUser />
-          <CiStar />
-          <FiSend />
+          <div className="step">
+            <PiUser className="stepCompleted test" />
+            <p>Identificação</p>
+          </div>
+
+          <div className="step">
+            <CiStar className={step >= 1 ? "stepCompleted" : ""} />
+            <p>Avaliação</p>
+          </div>
+          <div className="step">
+            <FiSend className={step === 2 ? "stepCompleted" : ""} />
+            <p>Envio</p>
+          </div>
         </div>
         <form onSubmit={(e) => handleChangeStep(step + 1, e)}>
-          {stepsComponents[step]}
-          <button
-            type="button"
-            onClick={() => handleChangeStep(step - 1)}
-            disabled={step === 0}
-          >
-            <RiArrowLeftWideFill />
-            Voltar
-          </button>
-          {step === stepsComponents.length - 1 ? (
-            <button type="submit">
-              Enviar
-              <FiSend />
+          <div className="component">{stepsComponents[step]}</div>
+          <div className="actions">
+            <button
+              type="button"
+              onClick={() => handleChangeStep(step - 1)}
+              disabled={step === 0}
+            >
+              <RiArrowLeftWideFill />
+              Voltar
             </button>
-          ) : (
-            <button type="submit">
-              Avançar
-              <RiArrowRightWideFill />
-            </button>
-          )}
+            {step === stepsComponents.length - 1 ? (
+              <button type="submit">
+                Enviar
+                <FiSend />
+              </button>
+            ) : (
+              <button type="submit">
+                Avançar
+                <RiArrowRightWideFill />
+              </button>
+            )}
+          </div>
         </form>
       </div>
     </div>

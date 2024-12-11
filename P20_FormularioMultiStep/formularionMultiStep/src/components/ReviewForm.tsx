@@ -1,4 +1,4 @@
-import React from "react";
+import "./ReviewForm.css";
 
 import { BsFillEmojiFrownFill } from "react-icons/bs";
 import { BsFillEmojiNeutralFill } from "react-icons/bs";
@@ -24,6 +24,8 @@ const ReviewForm = ({ user, handleChangeUser }: Props) => {
             value={Review.Unsatisfied}
             checked={user.review === Review.Unsatisfied}
             onChange={(e) => handleChangeUser("review", e.target.value)}
+            name="review"
+            required
           />
           <BsFillEmojiFrownFill />
           <p>Instatisfeito</p>
@@ -34,6 +36,8 @@ const ReviewForm = ({ user, handleChangeUser }: Props) => {
             value={Review.Normal}
             checked={user.review === Review.Normal}
             onChange={(e) => handleChangeUser("review", e.target.value)}
+            name="review"
+            required
           />
           <BsFillEmojiNeutralFill />
           <p>Normal</p>
@@ -44,6 +48,8 @@ const ReviewForm = ({ user, handleChangeUser }: Props) => {
             value={Review.Satisfied}
             checked={user.review === Review.Satisfied}
             onChange={(e) => handleChangeUser("review", e.target.value)}
+            name="review"
+            required
           />
           <BsFillEmojiSmileFill />
           <p>Satisfeito</p>
@@ -54,6 +60,8 @@ const ReviewForm = ({ user, handleChangeUser }: Props) => {
             value={Review.VerySatisfied}
             checked={user.review === Review.VerySatisfied}
             onChange={(e) => handleChangeUser("review", e.target.value)}
+            name="review"
+            required
           />
           <BsFillEmojiHeartEyesFill />
           <p>Muito satisfeito</p>

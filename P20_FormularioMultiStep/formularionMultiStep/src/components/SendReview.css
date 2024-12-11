@@ -1,0 +1,21 @@
+.sendReviewContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sendReviewContainer p,
+.resume span {
+  color: #999;
+}
+
+.resume {
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.resume p {
+  color: #000;
+}

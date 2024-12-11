@@ -1,4 +1,4 @@
-import React from "react";
+import "./UserForm.css";
 import { Review } from "../utils/Types";
 
 type Props = {
@@ -11,8 +11,8 @@ type Props = {
 };
 const UserForm = ({ user, handleChangeUser }: Props) => {
   return (
-    <div>
-      <div className="form-control">
+    <div className="userFormContainer">
+      <div className="formControl">
         <label htmlFor="">Nome:</label>
         <input
           type="text"
@@ -21,7 +21,7 @@ const UserForm = ({ user, handleChangeUser }: Props) => {
           required
         />
       </div>
-      <div className="form-control">
+      <div className="formControl">
         <label htmlFor="">Email:</label>
         <input
           type="email"
