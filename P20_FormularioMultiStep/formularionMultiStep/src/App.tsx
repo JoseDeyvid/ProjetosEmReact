@@ -20,20 +20,18 @@ function App() {
   });
 
   const handleChangeUser = (key: string, value: string | Review) => {
-    console.log(user);
     setUser((prev) => {
       return { ...prev, [key]: value };
     });
   };
   const stepsComponents = [
     <UserForm user={user} handleChangeUser={handleChangeUser} />,
-    <ReviewForm />,
+    <ReviewForm user={user} handleChangeUser={handleChangeUser} />,
     <SendReview />,
   ];
   const [step, setStep] = useState(0);
 
   const handleChangeStep = (newStep: number, e?: FormEvent) => {
-    console.log(newStep);
     if (e) e.preventDefault();
     if (newStep < 0 || newStep === stepsComponents.length) return;
 

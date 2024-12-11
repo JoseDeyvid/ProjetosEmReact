@@ -18,6 +18,7 @@ const UserForm = ({ user, handleChangeUser }: Props) => {
           type="text"
           value={user.name}
           onChange={(e) => handleChangeUser("name", e.target.value)}
+          required
         />
       </div>
       <div className="form-control">
@@ -26,6 +27,7 @@ const UserForm = ({ user, handleChangeUser }: Props) => {
           type="email"
           value={user.email}
           onChange={(e) => handleChangeUser("email", e.target.value)}
+          required
         />
       </div>
     </div>
