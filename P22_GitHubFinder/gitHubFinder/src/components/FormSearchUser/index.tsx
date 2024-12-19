@@ -5,10 +5,11 @@ import { User } from "../../utils/type";
 
 const FormSearchUser = () => {
   const [userName, setUserName] = useState("");
-  const { setUser, setErrorMessage } = useUser();
+  const { setUser, setErrorMessage, loading, setLoading } = useUser();
 
   const handleSearchUser = async (e: FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const res = await fetch(`https://api.github.com/users/${userName}`);
       if (!res.ok) {
@@ -21,6 +22,8 @@ const FormSearchUser = () => {
       setErrorMessage("Usuário não encontrado!");
       setUser(null);
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -33,7 +36,7 @@ const FormSearchUser = () => {
         value={userName}
         onChange={(e) => setUserName(e.target.value)}
       />
-      <button type="submit">
+      <button type="submit" disabled={loading || userName.trim() === ""}>
         <FaSearch />
       </button>
     </form>
