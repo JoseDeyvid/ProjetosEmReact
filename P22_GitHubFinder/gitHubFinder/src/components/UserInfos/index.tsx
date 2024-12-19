@@ -1,4 +1,5 @@
 import { CiLocationOn } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 type UserProps = {
   user: {
@@ -12,17 +13,19 @@ type UserProps = {
 };
 
 const UserInfos = ({ user }: UserProps) => {
-  const handleShowRepos = async () => {
-    try {
-      const res = await fetch(
-        `https://api.github.com/users/${user.login}/repos`
-      );
-      if (!res.ok) throw new Error("Response status: " + res.status);
-      const json = await res.json();
-      console.log(json);
-    } catch (error) {
-      console.log(error);
-    }
+  const navigate = useNavigate();
+  const handleShowRepos = () => {
+    navigate(`/repos/${user.login}`);
+    // try {
+    //   const res = await fetch(
+    //     `https://api.github.com/users/${user.login}/repos`
+    //   );
+    //   if (!res.ok) throw new Error("Response status: " + res.status);
+    //   const json = await res.json();
+    //   console.log(json);
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
   return (
     <div className="userInfosContainer">
