@@ -4,12 +4,12 @@ import UserInfos from "./components/UserInfos";
 import { useUser } from "./contexts/UserContext";
 
 function App() {
-  const { user } = useUser();
+  const { user, errorMessage } = useUser();
   return (
     <div>
       <h1>GitHub Finder</h1>
       <FormSearchUser />
-      {user && <UserInfos />}
+      {user ? <UserInfos /> : <p>{errorMessage}</p>}
     </div>
   );
 }

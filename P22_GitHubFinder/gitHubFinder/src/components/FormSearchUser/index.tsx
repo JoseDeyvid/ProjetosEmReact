@@ -5,15 +5,21 @@ import { User } from "../../utils/type";
 
 const FormSearchUser = () => {
   const [userName, setUserName] = useState("");
-  const { setUser } = useUser();
+  const { setUser, setErrorMessage } = useUser();
 
   const handleSearchUser = async (e: FormEvent) => {
     e.preventDefault();
     try {
       const res = await fetch(`https://api.github.com/users/${userName}`);
+      if (!res.ok) {
+        throw new Error(`Response status: ${res.status}`);
+      }
       const userJson = (await res.json()) as User;
       setUser(userJson);
+      setErrorMessage("");
     } catch (error) {
+      setErrorMessage("Usuário não encontrado!");
+      setUser(null);
       console.log(error);
     }
   };
