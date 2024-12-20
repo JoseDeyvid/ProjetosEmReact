@@ -1,3 +1,4 @@
+import "./styles.css";
 import { FormEvent, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useUser } from "../../contexts/UserContext";
@@ -30,15 +31,17 @@ const FormSearchUser = () => {
     <form onSubmit={(e) => handleSearchUser(e)}>
       <h2>Busque por um usuário:</h2>
       <p>Conheça seus melhores repositórios</p>
-      <input
-        type="text"
-        placeholder="Digite o nome do usuário"
-        value={userName}
-        onChange={(e) => setUserName(e.target.value)}
-      />
-      <button type="submit" disabled={loading || userName.trim() === ""}>
-        <FaSearch />
-      </button>
+      <div className="search-field">
+        <input
+          type="text"
+          placeholder="Digite o nome do usuário"
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+        />
+        <button type="submit" disabled={loading || userName.trim() === ""}>
+          <FaSearch />
+        </button>
+      </div>
     </form>
   );
 };

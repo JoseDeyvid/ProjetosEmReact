@@ -1,0 +1,17 @@
+:root {
+  --main-color: #150939;
+  --second-color: #371990a2;
+  --cyan-color: rgb(25, 177, 177);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #fff;
+}
+
+html {
+  background-color: var(--main-color);
+}

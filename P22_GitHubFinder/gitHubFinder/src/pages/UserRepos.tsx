@@ -4,6 +4,9 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { useUser } from "../contexts/UserContext";
 import { CiStar } from "react-icons/ci";
 import { GoRepoForked } from "react-icons/go";
+import { VscRepo } from "react-icons/vsc";
+
+import "./styles.css";
 
 const UserRepos = () => {
   const [repos, setRepos] = useState<Repo[]>([]);
@@ -42,32 +45,35 @@ const UserRepos = () => {
     navigate("/");
   };
   return (
-    <div>
+    <div className="userReposContainer">
       <button onClick={handleBackBtn}>Voltar</button>
-      {loading ? (
-        <p>Carregando repositórios...</p>
-      ) : repos.length === 0 ? (
-        <p>Esse usuário não possui repositórios</p>
-      ) : (
-        repos.map((repo) => (
-          <div>
-            <h5>{repo.name}</h5>
-            <p>{`</> ${repo.language}`}</p>
-            <div>
-              <p>
-                <CiStar /> {repo.stargazers_count}
-              </p>
-              <p>
-                <GoRepoForked />
-                {repo.forks_count}
-              </p>
+      <div className="repos">
+        {loading ? (
+          <p>Carregando repositórios...</p>
+        ) : repos.length === 0 ? (
+          <p>Esse usuário não possui repositórios</p>
+        ) : (
+          repos.map((repo) => (
+            <div className="repo">
+              <h5>{repo.name}</h5>
+              <p>{`</> ${repo.language}`}</p>
+              <div className="starsFourks">
+                <div className="stars">
+                  <CiStar />
+                  <p>{repo.stargazers_count}</p>
+                </div>
+                <div className="fourks">
+                  <GoRepoForked />
+                  <p>{repo.forks_count}</p>
+                </div>
+              </div>
+              <Link to={repo.html_url} target="blank">
+                Ver código <VscRepo />
+              </Link>
             </div>
-            <Link to={repo.html_url} target="blank">
-              Ver código
-            </Link>
-          </div>
-        ))
-      )}
+          ))
+        )}
+      </div>
     </div>
   );
 };

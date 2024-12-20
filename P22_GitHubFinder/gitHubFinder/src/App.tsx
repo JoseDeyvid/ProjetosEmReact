@@ -7,14 +7,14 @@ function App() {
   const { user, errorMessage, loading } = useUser();
   return (
     <div className="container">
-      <h1>GitHub Finder</h1>
+      <h1 style={{ paddingBottom: "1rem" }}>GitHub Finder</h1>
       <FormSearchUser />
       {loading ? (
-        <p>Carregando...</p>
+        <p style={{ marginTop: "1rem" }}>Carregando...</p>
       ) : user ? (
         <UserInfos user={user} />
       ) : (
-        <p>{errorMessage}</p>
+        <p style={{ marginTop: "1rem" }}>{errorMessage}</p>
       )}
     </div>
   );

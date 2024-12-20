@@ -1,3 +1,4 @@
+import "./styles.css";
 import { CiLocationOn } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 
@@ -16,22 +17,12 @@ const UserInfos = ({ user }: UserProps) => {
   const navigate = useNavigate();
   const handleShowRepos = () => {
     navigate(`/repos/${user.login}`);
-    // try {
-    //   const res = await fetch(
-    //     `https://api.github.com/users/${user.login}/repos`
-    //   );
-    //   if (!res.ok) throw new Error("Response status: " + res.status);
-    //   const json = await res.json();
-    //   console.log(json);
-    // } catch (error) {
-    //   console.log(error);
-    // }
   };
   return (
     <div className="userInfosContainer">
       <img src={user?.avatar_url} alt={`foto de perfil do ${user?.name}`} />
       <h3>{user?.name}</h3>
-      <p>
+      <p className="location">
         <CiLocationOn /> {user?.location}
       </p>
       <div className="follows">
