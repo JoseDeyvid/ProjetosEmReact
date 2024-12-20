@@ -54,7 +54,7 @@ const UserRepos = () => {
           <p>Esse usuário não possui repositórios</p>
         ) : (
           repos.map((repo) => (
-            <div className="repo">
+            <div className="repo" key={repo.id}>
               <h5>{repo.name}</h5>
               <p>{`</> ${repo.language}`}</p>
               <div className="starsFourks">

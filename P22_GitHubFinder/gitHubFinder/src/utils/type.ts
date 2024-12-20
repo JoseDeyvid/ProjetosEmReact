@@ -41,6 +41,7 @@ export type User = {
 };
 
 export type Repo = {
+  id: number;
   language: string;
   name: string;
   forks_count: number;
