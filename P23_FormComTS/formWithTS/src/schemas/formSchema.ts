@@ -21,7 +21,7 @@ export const formSchema = z
   })
   .refine((field) => field.password === field.confirmpassword, {
     message: "Senhas não coincidem.",
-    path: ["confirm"],
+    path: ["confirmpassword"],
   });
 
 export type FormSchema = z.infer<typeof formSchema>;
