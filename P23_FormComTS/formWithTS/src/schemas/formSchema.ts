@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const formSchema = z
+export const formSchema = z
   .object({
     name: z.string().min(3, "Campo deve possuir pelo menos 3 caracteres."),
     lastname: z.string().min(3, "Campo deve possuir pelo menos 3 caracteres."),
@@ -24,4 +24,4 @@ const formSchema = z
     path: ["confirm"],
   });
 
-export type FormSchem = z.infer<typeof formSchema>;
+export type FormSchema = z.infer<typeof formSchema>;
