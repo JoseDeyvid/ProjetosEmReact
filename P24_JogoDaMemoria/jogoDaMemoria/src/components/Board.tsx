@@ -1,12 +1,9 @@
 import "./Board.css";
 import Card from "./Card";
-import { CardType } from "../utils/types";
+import { useCardContext } from "../contexts/CardContext";
 
-type Props = {
-  cards: CardType[];
-};
-
-const Board = ({ cards }: Props) => {
+const Board = () => {
+  const { cards } = useCardContext();
   return (
     <div className="board">
       {cards.map((card, i) => (
