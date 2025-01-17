@@ -24,10 +24,10 @@ const Game = () => {
     return shuffleArray(duplicatedCards);
   };
 
-  const [cards, setCards] = useState(generateCards);
+  const [cards] = useState(generateCards);
   return (
     <div>
-      <Board />
+      <Board cards={cards} />
     </div>
   );
 };

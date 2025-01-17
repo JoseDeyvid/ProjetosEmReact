@@ -1,0 +1,23 @@
+.card {
+  border: 1px solid #000;
+  height: 100px;
+  width: 100px;
+  border-radius: 6px;
+  background-color: rgb(60, 60, 156);
+  color: #fff;
+  font-weight: bold;
+  font-size: 30px;
+  transition: 0.5s all;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card:hover {
+  background-color: rgb(30, 30, 82);
+}
+
+.flipped {
+  background-color: #fff;
+  color: rgb(60, 60, 156);
+}

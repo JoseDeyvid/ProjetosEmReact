@@ -1,10 +1,17 @@
-import React from "react";
+import "./Board.css";
 import Card from "./Card";
+import { CardType } from "../utils/types";
 
-const Board = () => {
+type Props = {
+  cards: CardType[];
+};
+
+const Board = ({ cards }: Props) => {
   return (
-    <div>
-      <Card />
+    <div className="board">
+      {cards.map((card, i) => (
+        <Card card={card} key={i} />
+      ))}
     </div>
   );
 };
