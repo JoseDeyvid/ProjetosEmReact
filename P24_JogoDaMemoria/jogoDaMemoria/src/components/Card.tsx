@@ -11,7 +11,7 @@ const Card = ({ card }: Props) => {
   return (
     <div
       className={`card ${card.isFlipped ? "flipped" : ""}`}
-      onClick={() => flipCard(card.id)}
+      onClick={() => flipCard(card)}
     >
       {card.isFlipped ? card.value : "?"}
     </div>

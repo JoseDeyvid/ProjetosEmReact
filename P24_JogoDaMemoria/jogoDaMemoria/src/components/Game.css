@@ -1,0 +1,21 @@
+.game {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.game p {
+  font-size: 20px;
+}
+
+.game button {
+  padding: 0.7rem;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: rgb(65, 139, 235);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
